@@ -1,9 +1,11 @@
 package com.academy.lesson04;
 
-public class Person {
+import java.util.Objects;
+
+public  class Person {
     // поля
-    private String firstName;
-    private String lastName;
+    protected String firstName; // поле доступно и для наследников
+    protected String lastName;
     private Integer age;
     private Character gender;
 
@@ -49,12 +51,33 @@ public class Person {
         this.gender = gender;
     }
 
+//    @Override
+//    public String toString() {
+//        return profile();
+//    }
+
     @Override
-    public String toString() {
-        return getProfile();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName);
     }
 
-    public String getProfile() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
+    }
+
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        Person other = (Person)obj;
+//        return this.firstName.equals(other.getFirstName());
+//    }
+
+    public String profile() {
         return firstName + "," + lastName;
     }
 }

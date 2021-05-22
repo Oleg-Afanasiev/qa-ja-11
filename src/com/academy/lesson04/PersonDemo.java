@@ -13,7 +13,7 @@ public class PersonDemo {
         }
 
         for(int i = 0; i < group.length; i++) {
-            System.out.println(group[i].getProfile());
+            System.out.println(group[i].profile());
         }
     }
 
