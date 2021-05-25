@@ -13,8 +13,16 @@ public class CustomDateDemo {
         System.out.println(date2.equals(date3)); // => true
 
         CustomDateTime dateTime = new CustomDateTime();
-        CustomDateTime dateTime2 = new CustomDateTime(2020, 3, 23, 12, 15, 9);
-        CustomDateTime dateTime3 = new CustomDateTime(2020, 3, 23, 12, 15, 9);
+//        CustomDateTime dateTime2 = new CustomDateTime(23, 3, 2020, 12, 15, 9);
+        CustomDateTime dateTime2 = new CustomDateTime()
+                .withHour(12)
+                .withMinute(15)
+                .withSecond(9)
+                .withYear(2023)
+                .withMonth(3)
+                .withDay(23);
+
+        CustomDateTime dateTime3 = new CustomDateTime(23, 3, 2020, 12, 15, 9);
         System.out.println(dateTime); // -> 01.01.1970 00:00:00
         System.out.println(dateTime2); //-> 23.03.2020 12:15:09
         System.out.println(dateTime3); //-> 23.03.2020 12:15:09

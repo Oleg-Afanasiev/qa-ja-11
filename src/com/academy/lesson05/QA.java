@@ -5,6 +5,9 @@ import com.academy.lesson04.Person;
 public class QA extends Person {
     private int experience;
 
+    public QA() {
+    }
+
     public QA(String firstName, String lastName, int experience) {
         super(firstName, lastName); // вызов конструктора базового класса (должен вызываться первым)
         this.experience = experience;
@@ -20,7 +23,7 @@ public class QA extends Person {
 
     @Override
     public String toString() {
-        return "QA: " + profile();
+        return "QA";
     }
 
     @Override

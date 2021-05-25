@@ -1,5 +1,7 @@
 package com.academy.lesson04;
 
+import com.academy.lesson05.Gender;
+
 import java.util.Objects;
 
 public  class Person {
@@ -7,7 +9,7 @@ public  class Person {
     protected String firstName; // поле доступно и для наследников
     protected String lastName;
     private Integer age;
-    private Character gender;
+    private Gender gender; // 'f', 'm'
 
     // конструкторы
     public Person() {
@@ -31,7 +33,7 @@ public  class Person {
         return age;
     }
 
-    public Character getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -47,7 +49,7 @@ public  class Person {
         this.age = age;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -70,8 +72,12 @@ public  class Person {
         return Objects.hash(firstName, lastName);
     }
 
+    @Override
+    public String toString() {
+        return "Person";
+    }
 
-//    @Override
+    //    @Override
 //    public boolean equals(Object obj) {
 //        Person other = (Person)obj;
 //        return this.firstName.equals(other.getFirstName());
