@@ -74,10 +74,15 @@ public  class Person {
 
     @Override
     public String toString() {
-        return "Person";
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                '}';
     }
 
-    //    @Override
+//    @Override
 //    public boolean equals(Object obj) {
 //        Person other = (Person)obj;
 //        return this.firstName.equals(other.getFirstName());
