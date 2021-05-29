@@ -1,6 +1,8 @@
 package com.academy.lesson07;
 
-public class Genius implements Developer, Boxer{
+import com.academy.lesson04.Person;
+
+public class Genius extends Person implements Developer, Boxer{
     @Override
     public void boxing() {
         System.out.println("boxing 3 times per week");

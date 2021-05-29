@@ -1,6 +1,8 @@
 package com.academy.lesson07;
 
-public class MiddleDev implements Developer {
+import com.academy.lesson04.Person;
+
+public class MiddleDev extends Person implements Developer {
 
     @Override
     public void codding() {

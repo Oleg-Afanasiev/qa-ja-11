@@ -1,5 +1,7 @@
 package com.academy.lesson07;
 
+import com.academy.lesson04.Person;
+
 import java.util.Arrays;
 
 public class InterfaceDemo {
@@ -32,5 +34,29 @@ public class InterfaceDemo {
         teamDev[1] = junior;
         teamDev[2] = genius;
         System.out.println(Arrays.toString(teamDev));
+
+        System.out.println("--exc--");
+        Person[] group = {
+                new JuniorDev(),
+                new MiddleDev(),
+                new Fighter(),
+                new Genius(),
+                new Person()};
+
+        // перебрать массив
+        // 1) заставить только dev из группы сделать код-ревью
+        // 2) заставить только боксеров боксировать
+
+        System.out.println("-- group codeReviewing--");
+        for (int i = 0; i < group.length; i++) {
+            // только девелоперы код ревью
+            if (group[i] instanceof Developer) {
+                ((Developer)group[i]).codeReviewing();
+            }
+        }
+
+        for (int i = 0; i < group.length; i++) {
+            // только боксеры далеют бокс
+        }
     }
 }
