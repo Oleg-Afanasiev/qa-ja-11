@@ -1,5 +1,7 @@
 package com.academy.lesson05.hometask;
 
+import com.academy.lesson08.ht.IllegalDateException;
+
 public class CustomDate {
     protected int day;
     protected int month;
@@ -14,8 +16,12 @@ public class CustomDate {
 
     // конструктор со всем параметрами
     public CustomDate(int day, int month, int year) {
+        if (month < 1 || month > 12)
+            throw new IllegalDateException();
+
+        // для дней
         this.day = day;
-        this.month = month;
+        this.month = month; // если месяц меньше 1 или больше 12 -> выбрасываем IllegalDateException
         this.year = year;
     }
 

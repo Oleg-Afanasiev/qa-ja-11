@@ -3,6 +3,7 @@ package com.academy.lesson07.ht;
 import com.academy.lesson04.Person;
 import com.academy.lesson05.Gender;
 
+import java.util.List;
 import java.util.Random;
 
 public class PersonGenerate {
@@ -18,7 +19,7 @@ public class PersonGenerate {
 
         Random random = new Random();
 
-        Person[] persons = new Person[100]; // [null,null,null,...] =>[Person1, Person2,...]
+        Person[] persons = new Person[20]; // [null,null,null,...] =>[Person1, Person2,...]
         for(int i = 0; i < persons.length; i++) {
             int ageFrom = 4;
             int ageTo = 90;
@@ -43,6 +44,13 @@ public class PersonGenerate {
             System.out.println(persons[i]);
             assert persons[i].getAge() >= 4 && persons[i].getAge() <=90;
         }
+
+        System.out.println("**********");
+        for(Person element : persons) {
+            // element => persons[i]
+            System.out.println(element);
+        }
+
     }
 
     public static int nextInt(int from, int to) {

@@ -1,4 +1,4 @@
-package com.academy.lesson08;
+package com.academy.lesson08.exc;
 
 public class Calculator {
     // метод выбрасывает проверяемый тип исключения
