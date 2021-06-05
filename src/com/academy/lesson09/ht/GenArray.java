@@ -1,13 +1,17 @@
 package com.academy.lesson09.ht;
 
 public class GenArray<T> {
-    private T[] array;
+    private T[] array; // null
 
-    private T get(int index){
-
+    public GenArray(T[] array) {
+        this.array = array;
     }
 
-    void set(int index, T element) {
+    public T get(int index){
+        return array[index];
+    }
 
+    public void set(int index, T value) {
+        array[index] = value;
     }
 }
