@@ -19,10 +19,38 @@ public class CustomDate {
         if (month < 1 || month > 12)
             throw new IllegalDateException();
 
+
+        if (day < 1 || day > countDaysInMonth(month))
+            throw new IllegalDateException();
+
         // для дней
         this.day = day;
         this.month = month; // если месяц меньше 1 или больше 12 -> выбрасываем IllegalDateException
         this.year = year;
+    }
+
+    public int countDaysInMonth(int month) {
+        // TODO
+        if (month == 1 || month == 3)
+            return 31;
+
+        if (month == 2)
+            return isLeap() ? 29 : 28;
+
+        return 30;
+    }
+
+    public boolean isLeap() {
+        if (this.year % 400 == 0)
+            return true;
+
+        if (this.year % 100 == 0)
+            return false;
+
+        if (this.year % 4 == 0)
+            return true;
+
+        return false;
     }
 
     @Override
