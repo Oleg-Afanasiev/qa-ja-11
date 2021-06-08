@@ -35,10 +35,33 @@ public class MapDemo {
         System.out.println("--2 способ--");
         Iterator<Integer> iterator = keys.iterator();
 
-        while (iterator.hasNext()) {
-            Integer key = iterator.next();
+        while (iterator.hasNext()) { // если есть след. элемент
+            Integer key = iterator.next(); // читаем след.
             String value = map.get(key); // "one";
             System.out.println(key + ":" + value);
         }
+
+        // 3 способ через итератор
+        System.out.println("--3 способ--");
+        Set<Map.Entry<Integer, String>> entries = map.entrySet();
+        Iterator<Map.Entry<Integer, String>> entryIterator = entries.iterator();
+
+        while (entryIterator.hasNext()) { // если есть след. элемент
+            Map.Entry<Integer, String> entry = entryIterator.next();
+            Integer key = entry.getKey(); // читаем след.
+            String value = entry.getValue(); // "one";
+            System.out.println(key + ":" + value);
+        }
+
+        // 4 способ через foreach (рекомендуемый)
+        System.out.println("--4 способ--");
+        for(Map.Entry<Integer, String> entry : map.entrySet()) {
+            Integer key = entry.getKey(); // читаем след.
+            String value = entry.getValue(); // "one";
+            System.out.println(key + ":" + value);
+        }
+
+        // 5 ДЗ - map.entrySet() - не используя foreach,
+        // а обычный for (int i = 0;...), используя вспомогательный ArrayList
     }
 }
