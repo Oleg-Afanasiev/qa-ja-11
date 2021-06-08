@@ -3,20 +3,27 @@ package com.academy.lesson07.ht;
 import com.academy.lesson04.Person;
 import com.academy.lesson05.Gender;
 
-import java.util.List;
 import java.util.Random;
 
 public class PersonGenerate {
+    // Данные для генерации
+    static Gender[] genders = {Gender.MALE,Gender.FEMALE}; // [0, 1]
+    static String[] manFirstNames = {"Архип","Болеслав","Марат","Семён",
+            "Юлиан","Сергей","Нифонт","Максим","Евгений","Геннадий",
+            "Володар","Ждан","Марк","Григорий","Леонид","Олег"};
+
+    static String[] womanFirstNames = {"Виктория","Дария","Арина","Зоя","Лиза","Мария","Надя","Раиса","Тамара",
+            "Октябрина","Рая","Роза","Нелли","Милана","Любовь","Леся",
+            "Каролина","Зинаида","Карина","Клавдия"};
+
+    static String[] manLastNames = {"Смирнов","Иванов","Кузнецов","Попов","Соколов","Лебедев","Козлов","Новиков",
+            "Морозов","Петров","Волков","Соловьёв","Васильев","Зайцев","Павлов"};
+
+    static String[] womanLastNames = {"Ковалёва","Ильина","Гусева","Титова","Кузьмина","Кудрявцева","Баранова",
+            "Куликова","Алексеева",
+            "Степанова","Яковалева","Сорокина","Сергеева","Романова","Захарова","Борисова"};
+
     public static void main(String[] args) {
-        Gender[] genders = {Gender.MALE,Gender.FEMALE}; // [0, 1]
-        String[] manFirstNames = {"Архип","Болеслав","Марат","Семён",
-                "Юлиан","Сергей","Нифонт","Максим","Евгений","Геннадий",
-                "Володар","Ждан","Марк","Григорий","Леонид","Олег"};
-
-        String[] womanFirstNames = {"Виктория","Дария","Арина","Зоя","Лиза","Мария","Надя","Раиса","Тамара",
-                "Октябрина","Рая","Роза","Нелли","Милана","Любовь","Леся",
-                "Каролина","Зинаида","Карина","Клавдия"};
-
         Random random = new Random();
 
         Person[] persons = new Person[20]; // [null,null,null,...] =>[Person1, Person2,...]
@@ -55,5 +62,29 @@ public class PersonGenerate {
 
     public static int nextInt(int from, int to) {
         return from + new Random().nextInt(from-to+1);
+    }
+
+    public static Person nextPerson(int ageFrom, int ageTo) {
+        Random random = new Random();
+
+        int randomAge = ageFrom + random.nextInt(ageTo-ageFrom+1); // 4 + [0..87]
+        Gender randomGender = genders[random.nextInt(2)];
+        String randomName;
+        String randomLastName;
+
+        if (randomGender == Gender.MALE) {
+            randomName = manFirstNames[random.nextInt(manFirstNames.length)]; // [0, ..., manFirstNames.length-1]
+            randomLastName = manLastNames[random.nextInt(manLastNames.length)];
+        } else {
+            randomName = womanFirstNames[random.nextInt(womanFirstNames.length)];
+            randomLastName = womanLastNames[random.nextInt(womanLastNames.length)];
+        }
+
+        Person person = new Person();
+        person.setGender(randomGender);
+        person.setAge(randomAge);
+        person.setFirstName(randomName);
+        person.setLastName(randomLastName);
+        return person;
     }
 }
