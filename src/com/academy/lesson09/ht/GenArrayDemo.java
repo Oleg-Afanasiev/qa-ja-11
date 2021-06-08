@@ -22,7 +22,8 @@ public class GenArrayDemo {
         // set Person with name 'Vasya'
         // check name from genArrayPerson is Vasya
         for (int i = 0; i < 10; i++) {
-            genArrayPerson.set(i, PersonGenerate.nextPerson(4, 90));
+            Person person = PersonGenerate.nextPerson(4, 90);
+            genArrayPerson.set(i, person);
         }
 
         for (int i = 0; i < 10; i++) {
