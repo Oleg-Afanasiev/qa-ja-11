@@ -28,5 +28,9 @@ public class ListExc {
         for (int i = 0; i < listNames.size(); i++) {
             System.out.println(listNames.get(i));
         }
+
+        listNames.sort((o1, o2)-> o1.compareTo(o2));
+        System.out.println(listNames);
+
     }
 }
